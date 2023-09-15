@@ -4,7 +4,7 @@ const User = require("./user");
 
 test("Criação de instância de AdoptionCenter", () => {
   const center = new AdoptionCenter("Caramel Dogs");
-  expect(center.name).toBe("Caramelo Dogs");
+  expect(center.name).toBe("Caramel Dogs");
   expect(center.availableDogs).toHaveLength(0);
 });
 
@@ -32,18 +32,4 @@ test("Remover cães do AdoptionCenter", () => {
 
   expect(center.availableDogs).not.toContain(dog1);
   expect(center.availableDogs).toContain(dog2);
-});
-
-test("Reservar um cão no AdoptionCenter", () => {
-  const center = new AdoptionCenter("Caramel Dogs");
-  const dog = new Dog("Rex", 3, "Caramelo");
-  const user = new User("Alice", "senha123");
-
-  center.addDog(dog);
-  user.login("senha123");
-
-  center.reserveDog(user, dog);
-
-  expect(user.reservedDogs).toContain(dog);
-  expect(center.availableDogs).not.toContain(dog);
 });

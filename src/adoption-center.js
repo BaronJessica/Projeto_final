@@ -15,26 +15,35 @@ class AdoptionCenter {
     }
   }
 
-  showAvailableDogs() {
-    console.log(`Cães disponíveis para adoção no centro ${this.name}:`);
-    this.availableDogs.forEach((dog) => {
-      console.log(`Nome: ${dog.name}, Idade: ${dog.age}, Cor: ${dog.color}`);
-    });
-  }
-
   reserveDog(user, dog) {
     if (user.isLoggedIn()) {
       if (!dog.adopted) {
+        // Remova o cão da lista de cães disponíveis e defina-o como adotado
+        this.removeDog(dog);
+        dog.adopted = true;
+
+        // Adicione o cão à lista de cães reservados do usuário
         user.addReservedDog(dog);
-        console.log(`${user.name} reservou ${dog.name} para adoção.`);
+
+        return dog;
       } else {
         console.log(`${dog.name} já foi adotado.`);
+        return null; // Ou qualquer outra indicação de erro, se preferir
       }
     } else {
       console.log(
-        `${user.name} não está logado. Portanto, não reservou nenhum cão.`
+        `${user.name}, você não está logado. Faça login para reservar.`
       );
+      return null; // Ou qualquer outra indicação de erro, se preferir
     }
   }
+
+  showAvailableDogs() {
+    console.log(`Cães disponíveis para adoção no ${this.name}:`);
+    this.availableDogs.forEach((dog) => {
+      console.log(`${dog.name} - Idade: ${dog.age} anos - Cor: ${dog.color}`);
+    });
+  }
 }
+
 module.exports = AdoptionCenter;
