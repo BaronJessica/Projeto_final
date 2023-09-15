@@ -2,12 +2,12 @@ const AdoptionCenter = require("../src/adoption-center");
 const Dog = require("../src/dog");
 const User = require("../src/user");
 
-// Crie instâncias de cães
+// instâncias de cães
 const dog1 = new Dog("Rex", 3, "Caramelo");
 const dog2 = new Dog("Lola", 2, "Caramelo");
 const dog3 = new Dog("Max", 4, "Caramelo");
 
-// Crie um centro de adoção
+//centro de adoção
 const adoptionCenter = new AdoptionCenter("Caramel Dogs");
 
 // Adicione cães ao centro de adoção
@@ -17,7 +17,7 @@ adoptionCenter.addDog(dog3);
 
 adoptionCenter.showAvailableDogs();
 
-// Crie usuários com senhas
+//  usuários com senhas
 const user1 = new User("Alice", "senha123");
 const user2 = new User("Bob", "senha456");
 
