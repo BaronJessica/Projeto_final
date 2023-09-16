@@ -28,13 +28,13 @@ class AdoptionCenter {
         return dog;
       } else {
         console.log(`${dog.name} já foi adotado.`);
-        return null; // Ou qualquer outra indicação de erro, se preferir
+        return null;
       }
     } else {
       console.log(
         `${user.name}, você não está logado. Faça login para reservar.`
       );
-      return null; // Ou qualquer outra indicação de erro, se preferir
+      return null;
     }
   }
 
